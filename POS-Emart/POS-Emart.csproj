@@ -65,22 +65,54 @@
     </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="DbConfig.cs" />
+    <Compile Include="HelperClass.cs" />
+    <Compile Include="LoginFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginFrm.Designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainDashboard.Designer.cs">
       <DependentUpon>MainDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductFrm.Designer.cs">
+      <DependentUpon>ProductFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFrm.Designer.cs">
+      <DependentUpon>UserFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserSession.cs" />
+    <Compile Include="UserUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserUpdateFrm.Designer.cs">
+      <DependentUpon>UserUpdateFrm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CategoryFrm.resx">
       <DependentUpon>CategoryFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginFrm.resx">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainDashboard.resx">
       <DependentUpon>MainDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductFrm.resx">
+      <DependentUpon>ProductFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,6 +124,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserFrm.resx">
+      <DependentUpon>UserFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserUpdateFrm.resx">
+      <DependentUpon>UserUpdateFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="emartDataSet.xsc">
       <DependentUpon>emartDataSet.xsd</DependentUpon>
     </None>

@@ -16,7 +16,7 @@ namespace POS_Emart
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainDashboard());
+            Application.Run(new LoginFrm());
         }
     }
 }
