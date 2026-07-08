@@ -60,11 +60,19 @@ namespace POS_Emart
                 return;
             }
 
-            if (cmbCategory.SelectedValue == null || !(cmbCategory.SelectedValue is int cateId))
+
+            //if (cmbCategory.SelectedValue == null || !(cmbCategory.SelectedValue is int cateId))
+            //{
+            //    MessageBox.Show("Please select a category.");
+            //    return;
+            //}
+            if (cmbCategory.SelectedIndex == -1)  
             {
                 MessageBox.Show("Please select a category.");
                 return;
             }
+            int cateId = Convert.ToInt32(cmbCategory.SelectedValue);
+
 
             if (!decimal.TryParse(txtPriceIn.Text.Trim(), out priceIn) || priceIn < 0)
             {
