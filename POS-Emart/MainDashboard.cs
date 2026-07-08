@@ -15,6 +15,15 @@ namespace POS_Emart
         public MainDashboard()
         {
             InitializeComponent();
+            this.FormClosing += MainDashboard_FormClosing;
+        }
+
+        private void MainDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Application.Exit();
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -42,6 +51,11 @@ namespace POS_Emart
             Global.SCREEN = panelContent;
             lblLoggedName.Text = UserSession.Username;
             lblLoggedRole.Text = UserSession.Role;
+            ApplyRolePermission();
+        }
+        private void ApplyRolePermission()
+        {
+            button4.Visible = UserSession.IsAdmin;
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -66,12 +80,20 @@ namespace POS_Emart
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void panelContent_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            UserSession.Logout();
+
+            new LoginFrm().Show();
+            this.Hide();
         }
     }
 }

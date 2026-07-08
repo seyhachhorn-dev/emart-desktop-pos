@@ -60,7 +60,8 @@
             this.btnUploadPhoto.TabIndex = 37;
             this.btnUploadPhoto.Text = "Upload Photo";
             this.btnUploadPhoto.UseVisualStyleBackColor = true;
-            // 
+            this.btnUploadPhoto.Click += new System.EventHandler(this.btnUploadPhoto_Click);
+            //
             // lblPhoto
             // 
             this.lblPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -81,7 +82,8 @@
             this.btnSave.TabIndex = 34;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            // 
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            //
             // checkBoxStatus
             // 
             this.checkBoxStatus.AutoSize = true;
@@ -137,9 +139,6 @@
             this.comboBoxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGender.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxGender.FormattingEnabled = true;
-            this.comboBoxGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
             this.comboBoxGender.Location = new System.Drawing.Point(220, 322);
             this.comboBoxGender.Name = "comboBoxGender";
             this.comboBoxGender.Size = new System.Drawing.Size(498, 36);
@@ -258,7 +257,8 @@
             this.pictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPhoto.TabIndex = 36;
             this.pictureBoxPhoto.TabStop = false;
-            // 
+            this.pictureBoxPhoto.Click += new System.EventHandler(this.pictureBoxPhoto_Click);
+            //
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

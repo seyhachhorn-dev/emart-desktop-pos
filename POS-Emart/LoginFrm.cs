@@ -15,6 +15,15 @@ namespace POS_Emart
         public LoginFrm()
         {
             InitializeComponent();
+            this.FormClosing += LoginFrm_FormClosing;
+        }
+
+        private void LoginFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Application.Exit();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,11 +49,7 @@ namespace POS_Emart
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                // Open Dashboard
-                MainDashboard dashboard = new MainDashboard();
-                dashboard.Show();
-
-                // Hide Login Form
+                new MainDashboard().Show();
                 this.Hide();
             }
             else
@@ -54,7 +59,6 @@ namespace POS_Emart
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -65,7 +69,6 @@ namespace POS_Emart
         private void checkBoxShowPass_CheckedChanged(object sender, EventArgs e)
         {
             txtPassword.PasswordChar = checkBoxShowPass.Checked ? '\0' : '*';
-
         }
     }
 }

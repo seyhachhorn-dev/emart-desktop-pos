@@ -15,54 +15,42 @@ namespace POS_Emart
         {
             bool isValid = false;
 
+            // using @parameter map to prevent SQL injection
+            string selectQuery = "select user_id,username,role from tbl_users where username = @Username and password = @Password";
 
-            using (SqlConnection con = new SqlConnection(DbConfig.con_string))
-
-                try
-
-
+            try
+            {
+                using (SqlConnection con = new SqlConnection(DbConfig.con_string))
+                using (SqlCommand cmd = new SqlCommand(selectQuery, con))
                 {
-                    //we can do * but just selecet 1 for speed and using @parameter map for prevent sql Injection
+                    cmd.Parameters.AddWithValue("@Username", username.Trim());
+                    cmd.Parameters.AddWithValue("@Password", password.Trim());
 
-                    string selectQuery = "select user_id,username,role from tbl_users where username = @Username and password = @Password";
+                    con.Open();
 
-                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
-
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-
-                        cmd.Parameters.AddWithValue("@Username", username.Trim());
-                        cmd.Parameters.AddWithValue("@Password", password.Trim());
-
-                        con.Open();
-
-                        // ExecuteScalar is much faster than a DataTable for checking existence
-
-                      using (SqlDataReader reader = cmd.ExecuteReader())
+                        if (reader.Read())
                         {
-                            if (reader.Read())
-                            {
-                                UserSession.UserId = Convert.ToInt32(reader["user_id"]);
-                                UserSession.Username = reader["username"].ToString();
-                                UserSession.Role = reader["role"].ToString();
-                                isValid = true;
-                            }
+                            UserSession.UserId = Convert.ToInt32(reader["user_id"]);
+                            UserSession.Username = reader["username"].ToString();
+                            UserSession.Role = reader["role"].ToString();
+                            isValid = true;
                         }
-
                     }
-
-
                 }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             return isValid;
+        }
 
-
-
+        public static object DbValue(object value)
+        {
+            return value ?? DBNull.Value;
         }
     }
 }
