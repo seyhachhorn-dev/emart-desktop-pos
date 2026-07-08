@@ -54,7 +54,7 @@ namespace POS_Emart
                 return;
             }
 
-            if (!int.TryParse(txtQty.Text.Trim(), out qty))
+            if (!int.TryParse(txtQty.Text.Trim(), out qty) || qty <0)
             {
                 MessageBox.Show("Invalid Quantity.");
                 return;
