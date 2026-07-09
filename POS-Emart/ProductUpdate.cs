@@ -21,7 +21,7 @@ namespace POS_Emart
         {
             using (var conn = new SqlConnection(DbConfig.con_string))
             {
-                var adapter = new SqlDataAdapter("SELECT id, title FROM tbl_categories", conn);
+                var adapter = new SqlDataAdapter("SELECT id, title FROM tbl_categories WHERE status = 1", conn);
                 var dt = new DataTable();
                 adapter.Fill(dt);
                 cmbCategory.DataSource = dt;

@@ -168,7 +168,7 @@ namespace POS_Emart
 
             try
             {
-                string query = "DELETE FROM tbl_categories WHERE id = @id";
+                string query = "UPDATE tbl_categories SET status = 0 WHERE id = @id";
 
                 using (SqlConnection con = new SqlConnection(DbConfig.con_string))
                 using (SqlCommand cmd = new SqlCommand(query, con))
